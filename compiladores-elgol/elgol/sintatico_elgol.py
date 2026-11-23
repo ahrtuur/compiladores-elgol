@@ -215,7 +215,10 @@ def p_lista_argumentos(p):
 # ---------------------------------------------------------------------
 
 def p_programa_funcoes(p):
-    '''programa : lista_funcoes bloco'''
+    '''programa : lista_funcoes bloco
+                | lista_funcoes'''
+    # Arquivo so com funcoes e aceito: a falta do programa principal e
+    # erro semantico, como a falta de main em C so aparece na ligacao.
 
 
 def p_lista_funcoes(p):
@@ -228,9 +231,15 @@ def p_funcao(p):
 
 
 def p_lista_parametros(p):
-    '''lista_parametros : lista_parametros VIRGULA parametro
-                        | parametro
+    '''lista_parametros : parametros
                         | vazio'''
+    # Funcao sem parametro e permitida. O vazio fica fora da recursao
+    # para nao aceitar virgula antes do primeiro parametro.
+
+
+def p_parametros(p):
+    '''parametros : parametros VIRGULA parametro
+                  | parametro'''
 
 
 def p_parametro(p):
