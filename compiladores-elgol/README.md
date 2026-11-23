@@ -17,7 +17,7 @@ Ferramenta escolhida pelo grupo: PLY (Python Lex-Yacc).
 ```
 elgol/    analisador léxico (Etapa 1) e sintático (Etapa 2) do Elgol
 tr4-c/    TR4: analisador léxico e sintático para um subconjunto de C
-docs/     artigo da Etapa 1 e conferência das regras
+docs/     artigos das Etapas 1 e 2 e conferência das regras
 ```
 
 ## Como rodar
