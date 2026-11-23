@@ -8,7 +8,7 @@ inicio .
   Teste = -5 .
   Lixo = 13 RESTO 4 .
   Teste = $Soma (Lixo + 1, Teste) .
-  Teste = $Soma () .
+  Teste = $Soma (, Lixo) .
   _NEG_ 5 .
   Teste = Lixo + 2
   Lixo = 7 .

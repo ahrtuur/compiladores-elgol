@@ -188,7 +188,9 @@ def p_operador_aritmetico(p):
 
 
 def p_chamada(p):
-    '''chamada : FUNCAO ABRE_PAR lista_argumentos FECHA_PAR'''
+    '''chamada : FUNCAO ABRE_PAR lista_argumentos FECHA_PAR
+               | FUNCAO ABRE_PAR FECHA_PAR'''
+    # A segunda forma chama funcao sem parametro, que a declaracao aceita.
 
 
 def p_lista_argumentos(p):
