@@ -31,7 +31,7 @@ NUM = r'[1-9][0-9]*'
 
 # Fim do lexema: o próximo caractere não pode continuar a palavra.
 # Sem isso, 'Teste39' casaria 'Teste' e deixaria '39' para trás.
-FIM = r'(?![A-Za-z0-9_])'
+FIM = r'(?![A-Za-z0-9_\u00C0-\u00FF])'
 
 # ===============================================================
 # Palavras reservadas
@@ -60,6 +60,7 @@ reservadas = {
     'diferente': 'DIFERENTE',
     'migual':    'MIGUAL',
     'MIgual':    'MAIGUAL',
+    'Migual':    'MAIGUAL',    # grafia do enunciado da Etapa 2
     'x':         'VEZES',      # multiplicacao: e uma letra, entra aqui
 }
 
@@ -145,7 +146,7 @@ def t_FUNCAO(t):
 
 
 def t_ERRO_FUNCAO(t):
-    r'\$[A-Za-z0-9_]*'
+    r'\$[A-Za-z0-9_\u00C0-\u00FF]*'
     reporta(t, ["nome de funcao invalido:"]
             + critica_identificador(t.value[1:]))
 
@@ -157,7 +158,7 @@ def t_NUMERO(t):
 
 
 def t_ERRO_NUMERO(t):
-    r'[0-9][A-Za-z0-9_]*'
+    r'[0-9][A-Za-z0-9_\u00C0-\u00FF]*'
     # O padrao e proposital: engole letras e underscore grudados no
     # numero para que '034' e '12abc' saiam como UM erro, e nao como
     # um erro seguido de um numero valido.
@@ -177,7 +178,7 @@ def t_ID(t):
 
 
 def t_ERRO_ID(t):
-    r'[A-Za-z_][A-Za-z0-9_]*'
+    r'[A-Za-z_\u00C0-\u00FF][A-Za-z0-9_\u00C0-\u00FF]*'
     # Mesma ideia: o padrao generico de palavra pega digito e
     # underscore para que 'Teste39' e 'Tes_Te' sejam um token so.
     reporta(t, ["nao e um identificador valido:"]
@@ -205,7 +206,7 @@ t_VIRGULA   = r','
 t_ABRE_PAR  = r'\('
 t_FECHA_PAR = r'\)'
 
-t_ignore = ' \t\r'
+t_ignore = ' \t\r\u200b\ufeff\u00a0'   # inclui espacos invisiveis que vem de PDF
 
 
 def t_error(t):

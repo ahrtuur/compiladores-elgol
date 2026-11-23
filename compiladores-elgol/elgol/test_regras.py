@@ -94,7 +94,7 @@ invalido("_Z_1: reservada colada em digito", "_Z_1")
 invalido("SE: palavra reservada e sensivel a caixa", "SE")
 invalido("$ sozinho: nome de funcao vazio", "$")
 confere("Teste$Soma: ID e FUNCAO grudados", "Teste$Soma", ['ID', 'FUNCAO'], 0)
-confere("Testé: o acento para o ID e vira erro", "Testé", ['ID'], 1)
+invalido("Testé: palavra com acento vira um erro so", "Testé")
 
 print("\n== Exemplo do professor ==")
 with open('exemplo_professor.elg', encoding='utf-8') as f:

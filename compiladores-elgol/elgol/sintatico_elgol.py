@@ -305,12 +305,16 @@ def p_se(p):
 
 
 def p_controle_cabecalho_erro(p):
-    '''enquanto : ENQUANTO error PONTO bloco
-       para : PARA error PONTO bloco
-       se : SE error PONTO ENTAO PONTO bloco SENAO PONTO bloco'''
-    # Preserva o bloco apos um cabecalho invalido. A recuperacao generica
-    # de comando descartaria so ate o ponto, causando erros nos inicio/fim
-    # corretos desse bloco. O p_error ja registrou a linha do cabecalho.
+    '''comando : error PONTO bloco'''
+    # Erro num cabecalho de enquanto, para ou se: o parser descarta ate o
+    # ponto do cabecalho e, se a linha seguinte abrir um bloco, consome o
+    # bloco junto, sem acusar erro nos inicio/fim corretos. Se nao vier
+    # bloco, a regra 'comando : error PONTO' do esqueleto assume.
+    p.parser.errok()
+
+
+def p_se_cabecalho_erro(p):
+    '''se : SE error PONTO ENTAO PONTO bloco SENAO PONTO bloco'''
     p.parser.errok()
 
 
