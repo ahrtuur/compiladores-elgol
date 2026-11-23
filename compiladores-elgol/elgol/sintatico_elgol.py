@@ -214,6 +214,45 @@ def p_lista_argumentos(p):
 #   erro sai na linha do ultimo 'fim .'.
 # ---------------------------------------------------------------------
 
+def p_programa_funcoes(p):
+    '''programa : lista_funcoes bloco'''
+
+
+def p_lista_funcoes(p):
+    '''lista_funcoes : lista_funcoes funcao
+                     | funcao'''
+
+
+def p_funcao(p):
+    '''funcao : DECIMAL FUNCAO ABRE_PAR lista_parametros FECHA_PAR PONTO bloco'''
+
+
+def p_lista_parametros(p):
+    '''lista_parametros : lista_parametros VIRGULA parametro
+                        | parametro
+                        | vazio'''
+
+
+def p_parametro(p):
+    '''parametro : DECIMAL ID'''
+
+
+def p_funcao_erro(p):
+    '''funcao : DECIMAL error PONTO bloco'''
+    p.parser.errok()
+
+
+def p_comando_retorno(p):
+    '''comando : retorno'''
+
+
+def p_retorno(p):
+    '''retorno : ELGIO ATRIB expressao_sem_funcao PONTO'''
+
+
+def p_expressao_sem_funcao(p):
+    '''expressao_sem_funcao : valor
+                            | expressao_sem_funcao operador_aritmetico valor'''
 
 # ---------------------------------------------------------------------
 # PARTE: COMANDOS DE CONTROLE (Integrante 4)
