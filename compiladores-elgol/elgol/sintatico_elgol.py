@@ -297,8 +297,7 @@ def p_operador_relacional(p):
                            | DIFERENTE
                            | MIGUAL
                            | MAIGUAL'''
-    # O lexico decide a grafia das reservadas; MAIGUAL representa MIgual
-    # (e tambem Migual quando a correcao do Integrante 5 for integrada).
+    # O lexico decide a grafia das reservadas; MAIGUAL representa MIgual e Migual.
 
 
 def p_enquanto(p):

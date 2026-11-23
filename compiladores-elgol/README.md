@@ -267,4 +267,4 @@ As constantes ficam no começo do `lexico_elgol.py`. Mudar qualquer decisão é 
 
 - [x] TR4: artigo sobre a ferramenta
 - [x] Etapa 1: analisador léxico do Elgol
-- [ ] Etapa 2: analisador sintático do Elgol
+- [x] Etapa 2: analisador sintático do Elgol
